@@ -1,3 +1,7 @@
+## What is IdFlix?
+IdFlix is an online striming vidio made by Indonesi. the id is the Indonesia county code.  
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
