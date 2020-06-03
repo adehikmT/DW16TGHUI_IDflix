@@ -3,12 +3,14 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Dashboard from './pages/dashboard'
+import Jumbotron from './component/jumbotron'
 
 function App() {
   return (
     <>
       <Router>
-        <Route path="/" component={Dashboard} />
+        <Route path="/" component={Dashboard} exact/>
+        <Route path="/jum" component={Jumbotron} />
       </Router>
     </>
   );

@@ -1,11 +1,27 @@
 import React from 'react'
-import CardMedia from '@material-ui/core/CardMedia'
 import {makeStyles} from '@material-ui/core/styles'
+import Img from '../images/jumbotron.png'
+
 
 const useStyles = makeStyles((theme) => ({
     root:
     {
-     position:'absolute'
+        position:'absolute',
+        width:'100%'
+    },
+    text:{
+        zIndex:'99',
+        position:'relative',
+        display:'inline-block',
+        marginTop:'200px'
+    },
+    blur:{
+        zIndex:'9',
+        position:'relative',
+        display:'inline-block',
+        width:'100%',
+        height:'680px',
+    	backgroundImage: 'linear-gradient(to top, rgba(0,0,0,1),rgba(0,0,0,0))',
     },
  }));
 
@@ -14,8 +30,13 @@ export default function Jumbotron(props){
 
     return(
         <>
-        <h1>test</h1>
-        <CardMedia className={classes.root} image="https://1000logos.net/wp-content/uploads/2017/11/Netflix-Logo-png.png" title="test"/>
+        <div>
+            <img src={Img} alt="null" className={classes.root}/>          
+            <div className={classes.blur}>
+            <span className={classes.text}> tez</span>
+            </div>
+          
+        </div>
         </>
     )
 }

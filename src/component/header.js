@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import ButtonCustom from './button'
-import Img from '../images/Images'
+import Img from '../images/IDflix.png'
 import { Link } from 'react-router-dom'
 
 
@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
    imgCenter:
    {
     position:'absolute',
-    width:'180px',
-    height:'70px',
-    marginLeft:'100px',
-    top:'-5px',
+    width:'70px',
+    height:'40px',
+    marginLeft:'150px',
+    top:'10px',
     alignItems:'center',
     [theme.breakpoints.down('md')]:
     {
@@ -58,7 +58,7 @@ export default function Header(props) {
                 </Typography>
                 </Grid>
                <Grid item lg >
-                <img src="https://1000logos.net/wp-content/uploads/2017/11/Netflix-Logo-png.png" className={classes.imgCenter} alt="img" />
+                <img src={Img} className={classes.imgCenter} alt="img" />
                 </Grid>
                <Grid item md>
                                 
