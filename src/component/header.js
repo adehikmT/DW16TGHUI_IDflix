@@ -4,25 +4,25 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import ButtonCustom from './button'
 import Img from '../images/IDflix.png'
 import { Link } from 'react-router-dom'
-
+// modal
+import Modal from './modal'
 
 const useStyles = makeStyles((theme) => ({
    root:
    {
-    position: 'absolute',
+    position: 'fixed',
     backgroundColor: '#1F1F1F',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
    },
    imgCenter:
    {
     position:'absolute',
-    width:'70px',
-    height:'40px',
+    width:'65px',
+    height:'35px',
     marginLeft:'150px',
-    top:'10px',
+    top:'15px',
     alignItems:'center',
     [theme.breakpoints.down('md')]:
     {
@@ -33,12 +33,36 @@ const useStyles = makeStyles((theme) => ({
        textDecoration:'none',
        paddingLeft:'30px',
        color:'white',
+   },
+   tombol:
+   {
+    position:"relative",
+    width:100,
+    height:theme.height,
+    marginRight:'30px',
+    float:"right",
+    zIndex:200
    }
 }));
 
+function cek(isLogin)
+{
+    if(!isLogin){
+    return(
+        <div>
+        <Modal color="secondary" width="20" height="20" size="small" name="Login"/>                 
+        <Modal width="20" height="20" size="small" name="Register"/>  
+         </div>
+     )}else{
+         
+     }
+}
+
+
 export default function Header(props) {
   const classes = useStyles();
-  
+  const {token}=props
+
   return (
       <>
       <AppBar className={classes.root}>
@@ -60,16 +84,9 @@ export default function Header(props) {
                <Grid item lg >
                 <img src={Img} className={classes.imgCenter} alt="img" />
                 </Grid>
-               <Grid item md>
-                                
-                  <ButtonCustom name="Login" href="#log" width="300px" color="secondary" size="small"
-                  colortext="red" margin="11px"
-                  />                 
-                  <ButtonCustom name="Register" href="#reg" width="300px" size="small"
-                  colortext="red"
-                  />   
-
-                </Grid>
+               <Grid item justify="flex-end" md>
+                 {cek(token)}
+                </Grid> 
             </Grid>
         </Toolbar>
       </AppBar>

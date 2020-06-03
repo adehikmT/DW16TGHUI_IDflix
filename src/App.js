@@ -1,16 +1,21 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter as Router,Route} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Dashboard from './pages/dashboard'
-import Jumbotron from './component/jumbotron'
+import Prof from './component/profileIcon'
 
 function App() {
   return (
     <>
       <Router>
-        <Route path="/" component={Dashboard} exact/>
-        <Route path="/jum" component={Jumbotron} />
+        <Switch>
+        <Route path="/"exact component={Dashboard}></Route>
+        <Route path="/profile"exact component={Prof}></Route>
+        <Route path="/true">
+        <Dashboard token="true"/>
+        </Route>
+        </Switch>
       </Router>
     </>
   );

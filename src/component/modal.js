@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import Button from '@material-ui/core/Button'
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -18,26 +20,32 @@ const useStyles = makeStyles((theme) => ({
   },
   btn:{
       marginTop:'100px'
-  }
+  },
+  root:
+    {
+     backgroundColor: theme.color,
+     width:theme.width,
+     height:theme.height,
+     marginRight:'30px',
+     float:"right"
+    }
 }));
 
-export default function TransitionsModal() {
-  const classes = useStyles();
+export default function TransitionsModal(props) {
+  const classes = useStyles(props);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
-  };
+  }; 
 
   const handleClose = () => {
     setOpen(false);
   };
-
+  const {size}=props
   return (
     <div>
-      <button type="button" className={classes.btn} onClick={handleOpen}>
-        react-transition-group
-      </button>
+      <Button variant="contained" onClick={()=>handleOpen()} color={props.color} size={size} className={classes.root}>{props.name}</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -52,8 +60,7 @@ export default function TransitionsModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
+            <Link to="/true"><button>Masuk</button></Link>
           </div>
         </Fade>
       </Modal>
