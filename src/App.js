@@ -7,12 +7,16 @@ import Tv from './pages/tv'
 import Movies from './pages/movies'
 import Login from './pages/login'
 import Register from './pages/register'
+import Prof from './component/profileIcon'
 
 function App() {
   return (
     <>
       <Router>
         <Switch>
+        <Route path="/prof">
+        <Prof />
+        </Route>
         <Route path="/true">
         <Dashboard token="true"/>
         </Route>

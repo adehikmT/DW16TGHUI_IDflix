@@ -86,9 +86,11 @@ export default function InputAdornments() {
       </div>
     </div>
         <div className={classes.btn}>
+        <Link to="/true" style={{textDecoration:'none'}}>
         <Button variant="outlined" color="primary">
-          Login
+        Login
         </Button>
+        </Link>
         <small> dont have an acount ? klik <Link to="/register" className={classes.downText}>Here</Link></small>
         </div>
       </>

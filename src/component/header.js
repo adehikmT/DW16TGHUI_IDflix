@@ -35,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
        textDecoration:'none',
        paddingLeft:'30px',
        color:'white',
+       [theme.breakpoints.down('md')]:
+        {
+            paddingTop:20
+        }
    },
    tombol:
    {

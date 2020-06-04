@@ -105,9 +105,11 @@ export default function InputAdornments() {
       />
     <TextareaAutosize aria-label="minimum height" rowsMin={3} style={{width:370}} placeholder="Address" />
         <div className={classes.btn}>
+        <Link to="/true" style={{textDecoration:'none'}}>
         <Button variant="outlined" color="primary">
-          Register
+        Register
         </Button>
+        </Link>
         <small> have an acount ? klik <Link to="/login" className={classes.downText}>Here</Link></small>
         </div>
     </Box>
