@@ -2,6 +2,7 @@ import React from 'react';
 import CardMedia from '@material-ui/core/CardMedia'
 import CardArea from '@material-ui/core/CardActionArea'
 import {makeStyles} from '@material-ui/core/styles'
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     card:
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight:20/3,
         marginTop:10/3,
         }
-    },
+    }, 
     title:{
         color:'white',
         marginLeft:-25
@@ -31,23 +32,30 @@ const useStyles = makeStyles((theme) => ({
         marginTop:3,
         textDecoration:'none'
     },
+    link:{
+        textDecoration:'none',
+        color:'white'
+    }
 }))
 
 
 export default function CardFilm(props){        
     const classes=useStyles();
-return (
+    const {judul,tahun}=props
+    const show= props.list ? <span/> : <ul><li><span className={classes.title}>{judul}</span></li><li><span className={classes.tahun}>{tahun}</span></li></ul>
+    const link='/detail/'+props.id
+    return (
         <>
             <CardArea>
+            <Link to={link}>
             <CardMedia className={classes.card}
             image={props.imgUrl}
             title={props.judul}
             />
-            <ul>
-            <li><span className={classes.title}>{props.judul}</span></li>
-            <li><span className={classes.tahun}>{props.tahun}</span></li>
-            </ul>
+            </Link>
+            {show}
             </CardArea>
+            
         </>
     );
 }

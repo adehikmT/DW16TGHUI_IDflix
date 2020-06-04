@@ -5,7 +5,6 @@ import Container from '@material-ui/core/Container'
 // card
 import CardFilm from './cardFilm'
 //data
-import Data from '../api/filem'
 
 const useStyles = makeStyles((theme) => ({
     root:
@@ -23,19 +22,20 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom:20,
         paddingTop:20
     }
-}))
+})) 
 
-const List=Data.map((data,index)=>{
-    return(
-        <Grid key={index} item lg={2} xl={1}>
-                <CardFilm key={index} imgUrl={data.imgUrl} judul={data.judul} tahun={data.tahun} />
-            </Grid>
-    )
-})
+
 
 export default function ListFilem(props){
     const classes=useStyles();
-    
+    const Data=props.data
+    const List=Data.map((data,index)=>{
+        return(
+            <Grid key={index} item lg={2} xl={1}>
+                    <CardFilm key={index} id={data.id} imgUrl={data.imgUrl} judul={data.judul} tahun={data.tahun} />
+                </Grid>
+        )
+    })
     return (
         <section className={classes.root}>
             <Container>
