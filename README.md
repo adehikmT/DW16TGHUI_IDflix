@@ -9,7 +9,7 @@ IdFlix is an online striming vidio made by Indonesi. the id is the Indonesia cou
 ## How to Use
 ```
 git clone https://github.com/adehikmT/DW16TGHUI_IDflix/tree/ <brench>
-npm isntall
+yarn isntall
 ```
 ## Available Scripts
 
