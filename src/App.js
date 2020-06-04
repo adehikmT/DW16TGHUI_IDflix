@@ -15,10 +15,10 @@ function App() {
         <Dashboard token="true"/>
         </Route>
         <Route path="/tv">
-        <Tv token="true"/>
+        <Tv token="false"/>
         </Route>
         <Route path="/movies">
-        <Movies token="true"/>
+        <Movies token="false"/>
         </Route>
         <Route path="/"exact component={Dashboard}></Route>
         </Switch>

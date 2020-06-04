@@ -4,7 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button'
-import {Link} from 'react-router-dom'
+// halaman render
+import Login from '../pages/login'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -14,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -32,7 +32,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function cek(props){
-     if(props === 'Login') {return "halaman login"}else{return "Halaman Register"}
+     if(props === 'Login'){
+       return <Login/>
+    }else{
+      return "Halaman Register"
+    }
 }
 
 export default function TransitionsModal(props) {
@@ -67,7 +71,6 @@ export default function TransitionsModal(props) {
         <Fade in={open}>
           <div className={classes.paper}>
             {halaman}
-          <Link to="/true"><button>{props.name}</button></Link>
           </div>
         </Fade>
       </Modal>

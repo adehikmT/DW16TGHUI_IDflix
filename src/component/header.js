@@ -79,7 +79,7 @@ export default function Header(props) {
                     <Link to="/" className={classes.link}>
                         Home
                     </Link>
-                    <Link to="/tvs" className={classes.link}>
+                    <Link to="/tv" className={classes.link}>
                         TV Shows
                     </Link>
                     <Link to="/movies" className={classes.link}>
