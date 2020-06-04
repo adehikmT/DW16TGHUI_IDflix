@@ -53,6 +53,7 @@ export default function TransitionsModal(props) {
     setOpen(false);
   };
   const {size}=props
+  
   return (
     <div>
       <Button variant="contained" onClick={()=>handleOpen()} color={props.color} size={size} className={classes.root}>{props.name}</Button>

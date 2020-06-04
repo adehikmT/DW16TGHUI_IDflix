@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Dashboard from './pages/dashboard'
 import Tv from './pages/tv'
 import Movies from './pages/movies'
+import Login from './pages/login'
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path="/tv">
         <Tv token="false"/>
+        </Route>
+        <Route path="/login">
+        <Login />
         </Route>
         <Route path="/movies">
         <Movies token="false"/>
