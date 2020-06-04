@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard'
 import Tv from './pages/tv'
 import Movies from './pages/movies'
 import Login from './pages/login'
+import Register from './pages/register'
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path="/login">
         <Login />
+        </Route>
+        <Route path="/register">
+        <Register />
         </Route>
         <Route path="/movies">
         <Movies token="false"/>

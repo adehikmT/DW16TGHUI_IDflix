@@ -6,6 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button'
 // halaman render
 import Login from './login'
+import Reg from './register'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -35,7 +36,7 @@ function cek(props){
      if(props === 'Login'){
        return <Login/>
     }else{
-      return "Halaman Register"
+      return <Reg/>
     }
 }
 
