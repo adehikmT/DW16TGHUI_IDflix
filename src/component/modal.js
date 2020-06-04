@@ -31,9 +31,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+function cek(props){
+     if(props === 'Login') {return "halaman login"}else{return "Halaman Register"}
+}
+
 export default function TransitionsModal(props) {
   const classes = useStyles(props);
   const [open, setOpen] = React.useState(false);
+
+  const halaman = cek(props.name)
 
   const handleOpen = () => {
     setOpen(true);
@@ -60,7 +66,8 @@ export default function TransitionsModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Link to="/true"><button>Masuk</button></Link>
+            {halaman}
+          <Link to="/true"><button>{props.name}</button></Link>
           </div>
         </Fade>
       </Modal>

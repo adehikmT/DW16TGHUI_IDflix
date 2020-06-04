@@ -18,7 +18,6 @@ class dashboard extends Component
            <>
                 <Header token={this.props.token}/>
                 <Jumbotron/>
-                <ListFilm kategori="TV Series"/>
                 <ListFilm kategori="Movies"/>
                 <Footer created=" DumpWays Ade 2020"/>
                 

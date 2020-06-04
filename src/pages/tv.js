@@ -5,7 +5,7 @@ import ListFilm from '../component/listFilem'
 import Footer from '../component/foooter'
 // router
 
-class dashboard extends Component
+class Tv extends Component
 {
     constructor(props){
         super()
@@ -19,7 +19,6 @@ class dashboard extends Component
                 <Header token={this.props.token}/>
                 <Jumbotron/>
                 <ListFilm kategori="TV Series"/>
-                <ListFilm kategori="Movies"/>
                 <Footer created=" DumpWays Ade 2020"/>
                 
             </>
@@ -27,4 +26,4 @@ class dashboard extends Component
     }
 }
 
-export default dashboard;
+export default Tv;

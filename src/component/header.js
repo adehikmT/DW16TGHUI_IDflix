@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Img from '../images/IDflix.png'
 import { Link } from 'react-router-dom'
+import ProfileIcon from './profileIcon'
 // modal
 import Modal from './modal'
 
@@ -14,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
    {
     position: 'fixed',
     backgroundColor: '#1F1F1F',
-    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    overflow:'hidden'
    },
    imgCenter:
    {
@@ -54,7 +56,11 @@ function cek(isLogin)
         <Modal width="20" height="20" size="small" name="Register"/>  
          </div>
      )}else{
-         
+        return(
+            <div>
+            <ProfileIcon/>
+            </div>
+        )
      }
 }
 
@@ -84,7 +90,7 @@ export default function Header(props) {
                <Grid item lg >
                 <img src={Img} className={classes.imgCenter} alt="img" />
                 </Grid>
-               <Grid item justify="flex-end" md>
+               <Grid item md>
                  {cek(token)}
                 </Grid> 
             </Grid>
