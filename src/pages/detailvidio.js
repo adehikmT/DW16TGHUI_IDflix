@@ -9,7 +9,7 @@ class Detailvidio extends Component {
         return (
             <div>
                  <Header token={this.props.token}/>
-                 <VidioPlay id={this.props.match.params.id}/>
+                 <VidioPlay id={this.props.match.params.id} />
                  <Detail id={this.props.match.params.id}/>
                  <Foo created=" DumpWays Ade"/>
             </div>

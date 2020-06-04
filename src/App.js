@@ -36,7 +36,7 @@ class App extends Component {
         <Route path="/movies" exact>
         <Movies  token="false"/>
         </Route>
-        <Route path="/detail/:id" render={(props) => <Detail {...props}/>} />
+        <Route path="/detail/:id" render={(props) => (<Detail {...props}/>)}/>
         </Switch>
       </Router>
     </>

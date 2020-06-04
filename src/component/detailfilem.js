@@ -7,7 +7,6 @@ import Slide from './slide'
 // card
 import CardFilm from './cardFilm'
 //data
-import Data from '../api/filem'
 
 const useStyles = makeStyles((theme) => ({
     root:
@@ -75,7 +74,7 @@ var data=[
 export default function ListFilem(props){
     const classes=useStyles();
     // var databyid=Data.filter(dt=>dt.id===props.id)
-    var list=props.id === 1 ? 0 : 1
+    var list=props.id === 1 ? 1 : 0
     return (
         <section className={classes.root}>
             <Container>
