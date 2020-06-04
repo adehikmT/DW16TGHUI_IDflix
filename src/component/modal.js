@@ -5,7 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button'
 // halaman render
-import Login from '../pages/login'
+import Login from './login'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
