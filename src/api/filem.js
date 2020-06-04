@@ -43,9 +43,9 @@ var Data=[
     },
     {
         'id':4,
-        'imgUrl':'https://img1.kpopmap.com/2019/01/kingdom-other-characters.jpg',
+        'imgUrl':'https://i.pinimg.com/originals/29/38/09/2938097913a0ffd50f96b2e8c0c9baab.jpg',
         'vidioUrl':'https://www.youtube.com/watch?v=4l-yByZpaaM',
-        'judul':'Kingdom',
+        'judul':'Crypto',
         'tahun':'2019',
         'detail':'In a kingdom defeated by corruption and famine, a mysterious plague spreads to turn the infected into monsters. The crown prince, framed for treason and desperate to save his people, sets out on a journey to unveil what evil lurks in the dark. Kingdom coming to Netflix worldwide January 25',
         'kategori':'Tv',

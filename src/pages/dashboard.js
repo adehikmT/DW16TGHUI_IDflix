@@ -13,14 +13,14 @@ class dashboard extends Component
     
     }
     render() 
-    {
+    { 
         var filem=Data.filter(dt=>dt.kategori==='Filem')
         var tv=Data.filter(dt=>dt.kategori==='Tv')
         return (
             // fragmen
            <>
                 <Header token={this.props.token}/>
-                <Jumbotron/>
+                <Jumbotron token={this.props.token}/>
                 <ListFilm kategori="TV Series" data={tv}/>
                 <ListFilm kategori="Movies" data={filem}/>
                 <Footer created=" DumpWays Ade 2020"/>

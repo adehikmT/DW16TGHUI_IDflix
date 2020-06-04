@@ -18,7 +18,7 @@ class Tv extends Component
             // fragmen
            <>
                 <Header token={this.props.token}/>
-                <Jumbotron/>
+                <Jumbotron token={this.props.token}/>
                 <ListFilm kategori="TV Series" data={tv}/>
                 <Footer created=" DumpWays Ade 2020"/>
                 

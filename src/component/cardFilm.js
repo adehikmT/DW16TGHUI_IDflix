@@ -43,6 +43,7 @@ export default function CardFilm(props){
     const classes=useStyles();
     const {judul,tahun}=props
     const show= props.list ? <span/> : <ul><li><span className={classes.title}>{judul}</span></li><li><span className={classes.tahun}>{tahun}</span></li></ul>
+      
     const link='/detail/'+props.id
     return (
         <>

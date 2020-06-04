@@ -1,6 +1,6 @@
 import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
-import Img from '../images/jumbotron.png'
+import IImg from '../images/jumbotron.png'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     {
         position:'absolute',
         width:'100%',
+        height:'100%',
         marginTop:40,
         [theme.breakpoints.down('md')]:
         {
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         display:'inline-block',
         width:'100%',
         height:'720px',
-        backgroundImage: 'linear-gradient(to top, rgba(0,0,0,5),rgba(0,0,0,0))',
+        backgroundImage: 'linear-gradient(to top, rgba(0,0,0,9),rgba(0,0,0,0))',
         [theme.breakpoints.down('md')]:
         {
             height:'300px'
@@ -77,7 +78,9 @@ const useStyles = makeStyles((theme) => ({
 export default function Jumbotron(props){
     const classes=useStyles()
     const data=Data;
-
+    const Img= props.token ? 'https://i.ytimg.com/vi/kYZut3DWvek/maxresdefault.jpg' :   IImg
+    const fontImg= props.token ? 'https://fanart.tv/detailpreview/fanart/movies/567733/hdmovielogo/crypto-5ca5544547b9c.png' : data.img
+    const quotes=props.token ? 'Crypto is a 2019 American crime drama thriller film, about money laundering involving cryptocurrency. The film was directed by John Stalberg Jr. and written by Carlyle Eubank, David Frigerio, and Jeffrey Ingber. It stars Beau Knapp, Alexis Bledel, Luke Hemsworth and Kurt Russell. The film was released on April 12, 2019 in the United States' : data.quotes
     return(
         <>
         <div>
@@ -86,13 +89,13 @@ export default function Jumbotron(props){
             <div className={classes.text}>
                 <Grid container direction="row" alignItems="flex-start">
                     <Grid item lg>
-                    <img src={data.img} alt="null" className={classes.witcher}/>          
+                    <img src={fontImg} alt="null" className={classes.witcher}/>          
                     </Grid>
                 </Grid> 
                 <Grid container direction="row" alignItems="flex-start">
                     <Grid item lg>
                         <p className={classes.quote}>
-                        {data.quotes} 
+                        {quotes} 
                         <Link to="/tvs" style={{textDecoration:'none',marginLeft:10}}>
                         <Button  size="small" variant="outlined">tv Series</Button>
                         </Link>
