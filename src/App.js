@@ -8,7 +8,7 @@ import Movies from './pages/movies'
 import Login from './pages/login'
 import Register from './pages/register'
 import Detail from './pages/detailvidio'
-import Vidio from './component/detailfilem'
+import Vidio from './pages/Profile'
 
 function App () {
   return (
@@ -16,7 +16,7 @@ function App () {
       <Router>
         <Switch>
         <Route path="/" exact component={Dashboard}></Route>
-        <Route path="/vidio" exact>
+        <Route path="/tes" exact>
         <Vidio />
         </Route>
         <Route path="/true" exact>

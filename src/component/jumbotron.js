@@ -2,7 +2,6 @@ import React from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import IImg from '../images/jumbotron.png'
 import Grid from '@material-ui/core/Grid'
-import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 // data
 import Data from '../api/dashboard'
@@ -96,9 +95,7 @@ export default function Jumbotron(props){
                     <Grid item lg>
                         <p className={classes.quote}>
                         {quotes} 
-                        <Link to="/tvs" style={{textDecoration:'none',marginLeft:10}}>
-                        <Button  size="small" variant="outlined">tv Series</Button>
-                        </Link>
+                        <Button  size="small" variant="outlined" style={{textDecoration:'none',marginLeft:10}}>tv Series</Button>
                          </p>
                     </Grid>
                 </Grid> 

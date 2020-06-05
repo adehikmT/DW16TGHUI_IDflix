@@ -57,7 +57,7 @@ function cek(isLogin)
     return(
         <div>
         <Modal color="secondary" width="20" height="20" size="small" name="Login"/>                 
-        <Modal width="20" height="20" size="small" name="Register"/>  
+        <Modal width="20" height="20" size="small" name="Register" style={{color:'red'}}/>  
          </div>
      )}else{
         return(

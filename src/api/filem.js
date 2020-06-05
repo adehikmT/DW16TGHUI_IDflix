@@ -166,6 +166,20 @@ var Data=[
             'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
             'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
         ]
+    },
+    {
+        'id':'12',
+        'imgUrl':'https://cdn.releases.com/img/image/f8b00eda-acfb-4e09-ab9b-79d9c12d7879.jpg/300',
+        'vidioUrl':'https://www.youtube.com/watch?v=z-81WVD8xTs',
+        'judul':'Instiable',
+        'tahun':'2011',
+        'detail':'detail',
+        'kategori':'Filem',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     }
     ]
 
