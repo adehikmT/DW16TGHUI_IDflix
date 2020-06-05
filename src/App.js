@@ -10,9 +10,7 @@ import Register from './pages/register'
 import Detail from './pages/detailvidio'
 import Vidio from './component/detailfilem'
 
-
-class App extends Component {
-  render(){
+function App () {
   return (
     <>
       <Router>
@@ -41,6 +39,6 @@ class App extends Component {
       </Router>
     </>
   );
-  }
 }
+
 export default App;
