@@ -8,7 +8,7 @@ import Movies from './pages/movies'
 import Login from './pages/login'
 import Register from './pages/register'
 import Detail from './pages/detailvidio'
-import Vidio from './pages/Profile'
+import Vidio from './pages/Payment'
 
 function App () {
   return (

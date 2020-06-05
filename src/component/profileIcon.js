@@ -6,6 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Divider from '@material-ui/core/Divider';
+import MovieIcon from '@material-ui/icons/Movie';
 // data
 // import Data from '../api/profile'
 
@@ -76,6 +78,8 @@ export default function ProfileIcon() {
               >
                 <MenuItem onClick={handleClose}><AccountCircle className={classes.item}/>Profile</MenuItem>
                 <MenuItem onClick={handleClose}><PlayCircleFilledIcon className={classes.item}/>Play</MenuItem>
+                <MenuItem onClick={handleClose}><MovieIcon className={classes.item}/>Movies</MenuItem>
+                <Divider />
                 <MenuItem onClick={handleClose}><ExitToAppIcon className={classes.item}/>Logut</MenuItem>
               </Menu> 
               {/* {Data} */}
