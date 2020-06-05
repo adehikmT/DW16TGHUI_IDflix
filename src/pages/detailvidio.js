@@ -4,7 +4,35 @@ import VidioPlay from '../component/vidioplayer'
 import Detail from '../component/detailfilem'
 import Foo from '../component/foooter'
 
+
 class Detailvidio extends Component {
+    // constructor(props){
+    //     super(props)
+    //     //state
+    //     this.state={
+    //         id:'',
+    //         imgUrl:'',
+    //         judul:'',
+    //         detail:'',
+    //         imgSlide:'' 
+    //     }
+    //   }
+
+    //   componentDidMount(){
+    //       const {id}=this.props.match.params
+    //     var databyid=Data.filter(dt=>dt.id===id)
+    //     const data=databyid[0]
+    //     this.setState({
+    //         id:data.id,
+    //         imgUrl:data.imgUrl,
+    //         judul:data.judul,
+    //         detail:data.detail,
+    //         imgSlide:data.imgSlide
+    //         })
+    //         console.log(data.id)
+    //       }
+
+
     render() {
         return (
             <div>

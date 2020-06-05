@@ -1,6 +1,6 @@
 var Data=[
     {
-        'id':1,
+        'id':'4',
         'imgUrl':'https://i.pinimg.com/originals/29/38/09/2938097913a0ffd50f96b2e8c0c9baab.jpg',
         'vidioUrl':'https://www.youtube.com/watch?v=kYZut3DWvek',
         'judul':'Cripto',
@@ -14,7 +14,7 @@ var Data=[
         ]
     },
     {
-        'id':2,
+        'id':'2',
         'imgUrl':'http://fr.web.img3.acsta.net/pictures/18/06/29/09/23/0847774.jpg',
         'vidioUrl':'https://www.youtube.com/watch?v=M1bS7YZniRk',
         'judul':'Ciber',
@@ -28,7 +28,7 @@ var Data=[
         ]
     },
     {
-        'id':3,
+        'id':'3',
         'imgUrl':'http://fr.web.img6.acsta.net/pictures/15/10/26/11/08/023767.jpg',
         'vidioUrl':'https://www.youtube.com/watch?v=BHODdNs8vSo',
         'judul':'Moster of none',
@@ -42,10 +42,10 @@ var Data=[
         ]
     },
     {
-        'id':4,
+        'id':'15',
         'imgUrl':'https://i.pinimg.com/originals/29/38/09/2938097913a0ffd50f96b2e8c0c9baab.jpg',
-        'vidioUrl':'https://www.youtube.com/watch?v=4l-yByZpaaM',
-        'judul':'Crypto',
+        'vidioUrl':'https://www.youtube.com/watch?v=kYZut3DWvek',
+        'judul':'Kingdom',
         'tahun':'2019',
         'detail':'In a kingdom defeated by corruption and famine, a mysterious plague spreads to turn the infected into monsters. The crown prince, framed for treason and desperate to save his people, sets out on a journey to unveil what evil lurks in the dark. Kingdom coming to Netflix worldwide January 25',
         'kategori':'Tv',
@@ -56,7 +56,7 @@ var Data=[
         ]
     },
     {
-        'id':5,
+        'id':'1',
         'imgUrl':'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F02%2Fwalk-ride-rodeo-1-1.jpg',
         'vidioUrl':'https://www.youtube.com/watch?v=BK0rbzLk0YI',
         'judul':'Walk. Ride',
@@ -70,67 +70,102 @@ var Data=[
         ]
     },
     {
-        'id':6,
+        'id':'6',
         'imgUrl':'http://screenprism.com/assets/img/covers/_350x520/Fuller-House-poster-season-1-Netflix-2016.jpg',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=fqdFRO7r-wk',
         'judul':'Fuller House',
         'tahun':'2019',
         'detail':'detail',
-        'kategori':'Tv'
+        'kategori':'Tv',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     },
     {
-        'id':7,
+        'id':'7',
         'imgUrl':'https://www.dvd-forum.at/img/uploaded/daybreak-netflix.jpg',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=2P9U41e75tE',
         'judul':'DayBreak',
         'tahun':'2010',
         'detail':'detail',
-        'kategori':'Tv'
+        'kategori':'Tv',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     },
     {
-        'id':8,
+        'id':'8',
         'imgUrl':'https://img.discogs.com/RPuc6c9DDNKA9M0qK39hQ4KEaFU=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-9258524-1484162372-6981.jpeg.jpg',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=b9EkMc79ZSU',
         'judul':'Strenger Thing',
         'tahun':'2011',
         'detail':'detail',
-        'kategori':'Tv'
+        'kategori':'Tv',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     },
     {
-        'id':9,
+        'id':'9',
         'imgUrl':'https://i.insider.com/536d1d54eab8ea6b123e69bd',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=yWWOrCE1MR8',
         'judul':'SPY Kids',
         'tahun':'2011',
         'detail':'detail',
-        'kategori':'Tv'
+        'kategori':'Tv',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     },
     {
-        'id':10,
+        'id':'10',
         'imgUrl':'https://www.newdvdreleasedates.com/images/posters/large/khumba-2013-02.jpg',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=rN0gwblPifo',
         'judul':'Khumba',
         'tahun':'2011',
         'detail':'detail',
-        'kategori':'Tv'
+        'kategori':'Tv',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     },
     {
-        'id':11,
+        'id':'11',
         'imgUrl':'https://i1.netflixmovies.com/dibsl9ebc/image/upload/w_1024/ndp6ycswwuooichdkzb9.jpg',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=RSTZl1bENrc',
         'judul':'Goofy',
         'tahun':'2011',
         'detail':'detail',
-        'kategori':'Filem'
+        'kategori':'Filem',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     },
     {
-        'id':12,
+        'id':'12',
         'imgUrl':'https://cdn.releases.com/img/image/f8b00eda-acfb-4e09-ab9b-79d9c12d7879.jpg/300',
-        'vidioUrl':'url vidio',
+        'vidioUrl':'https://www.youtube.com/watch?v=z-81WVD8xTs',
         'judul':'Instiable',
         'tahun':'2011',
         'detail':'detail',
-        'kategori':'Filem'
+        'kategori':'Filem',
+        'imgDetail':[
+            'https://occ-0-3111-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABY4msv6yzsmqA-vmRKUr98GOatkwKMFpY_wSyIOuYgz071wKW_UFFBlZIFFx-0PW1Ll3F1BtKHEs4uzY6Pv3DKOYLSnT3qjYnQ.jpg?r=cbc',
+            'https://occ-0-3011-116.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQNZC0MvOLSoX4EQBdoK7gFwPJCYVn9pgEc6f9XTtoxY_j3Yd201PKCI13iJa8DoItOJ5tIc_qHUAtj5KwkrgmliYChV.jpg?r=c81',
+            'https://occ-0-3011-114.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABdbUvnb7IfCykFMgreaupL9TROCY-Zxv3Ajx68B89Ru4A0w60vHBBn6O5X63opco8uomOQ5tB7Faxz62gL1zZws0P5tv.jpg?r=773'
+        ]
     }
     ]
 
