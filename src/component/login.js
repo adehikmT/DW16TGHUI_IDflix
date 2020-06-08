@@ -62,7 +62,7 @@ export default function InputAdornments() {
     <div>
       <div>
           <h3>Login</h3>
-        <TextField required id="standard-required" label="Username"/>
+        <TextField required id="standard-required" label="Username" autoFocus/>
         <FormControl className={clsx(classes.margin, classes.textField)}>
           <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
           <Input
@@ -86,7 +86,7 @@ export default function InputAdornments() {
       </div>
     </div>
         <div className={classes.btn}>
-        <Link to="/true" style={{textDecoration:'none'}}>
+        <Link to="/admin" style={{textDecoration:'none'}}>
         <Button variant="outlined" color="primary">
         Login
         </Button>

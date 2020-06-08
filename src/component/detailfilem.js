@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container'
 import Slide from './slide'
 // card
 import CardFilm from './cardFilm'
+import Admin from './sectionAdmin'
 //data
 
 const useStyles = makeStyles((theme) => ({
@@ -28,17 +29,6 @@ const useStyles = makeStyles((theme) => ({
         paddingTop:20
     }
 }))
-
-// function data(Data){
-//     return new Promise(function(resolve, reject){
-//          var data=Data.filter(dt=>dt.id===1)
-//          resolve(data)
-//     })
-// }
-
-// async function get(d){
-// console.log(await data(d))
-// }
 
 var data=[
     {
@@ -75,8 +65,16 @@ export default function ListFilem(props){
     const classes=useStyles();
     // var databyid=Data.filter(dt=>dt.id===props.id)
     var list=props.id === 1 ? 1 : 0
+
+    function cek(admin){
+        if(admin){
+                return <Admin detail={true}/>
+        }
+    }
+
     return (
         <section className={classes.root}>
+            {cek(props.admin)}
             <Container>
         <Grid container >
             <Grid  item lg={3} xl={1}>

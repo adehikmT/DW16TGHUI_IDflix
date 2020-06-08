@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+import {Link} from 'react-router-dom'
  
 class Slide extends Component {
     constructor(props){
@@ -17,7 +18,7 @@ class Slide extends Component {
         return (
             <Carousel>
             {data.map((dt,i)=>
-                <img key={i} alt="img" style={style} src={dt} /> 
+                <Link to="/detail/1"><img key={i} alt="img" style={style} src={dt} /></Link> 
                 )}
             </Carousel>
         );

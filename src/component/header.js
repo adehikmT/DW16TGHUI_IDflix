@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Img from '../images/IDflix.png'
+import Img from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import ProfileIcon from './profileIcon'
 // modal
@@ -16,15 +16,16 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     backgroundColor: '#1F1F1F',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    overflow:'hidden'
+    overflow:'hidden',
+    height:'50px'
    },
    imgCenter:
    {
     position:'absolute',
     width:'65px',
     height:'35px',
-    marginLeft:'150px',
-    top:'15px',
+    marginLeft:'350px',
+    top:'10px',
     alignItems:'center',
     [theme.breakpoints.down('md')]:
     {
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     }
    },
    link :{
+       marginTop:-20,
        textDecoration:'none',
        paddingLeft:'30px',
        color:'white',
@@ -42,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
    },
    tombol:
    {
+    marginTop:-20,
     position:"relative",
     width:100,
     height:theme.height,
@@ -51,51 +54,57 @@ const useStyles = makeStyles((theme) => ({
    }
 }));
 
-function cek(isLogin)
+function cek(isLogin,admin)
 {
     if(!isLogin){
     return(
-        <div>
+        <div style={{'marginTop':'-10px'}}>
         <Modal color="secondary" width="20" height="20" size="small" name="Login"/>                 
-        <Modal width="20" height="20" size="small" name="Register" style={{color:'red'}}/>  
+        <Modal width="20" height="20" size="small" texCol="#1F1F1F" name="Register"/>  
          </div>
      )}else{
         return(
             <div>
-            <ProfileIcon/>
+            <ProfileIcon admin={admin}/>
             </div>
         )
      }
 }
 
+function cekAdmin(isAdmin,link){
+    if(!isAdmin){
+        return (<div style={{'marginTop':'-18px'}}>
+        <Grid item lg>
+    <Typography>
+        <Link to="/" className={link}>
+            Home
+        </Link>
+        <Link to="/tv" className={link}>
+            TV Shows
+        </Link>
+        <Link to="/movies" className={link}>
+            Movies
+        </Link>
+    </Typography>
+    </Grid></div>)
+    }
+}
 
 export default function Header(props) {
   const classes = useStyles();
-  const {token}=props
+  const {token,admin}=props
 
   return (
       <>
       <AppBar className={classes.root}>
         <Toolbar>
             <Grid container direction="row" justify="space-evenly" alignItems="center">
+               {cekAdmin(admin,classes.link)}
                <Grid item lg>
-                <Typography>
-                    <Link to="/" className={classes.link}>
-                        Home
-                    </Link>
-                    <Link to="/tv" className={classes.link}>
-                        TV Shows
-                    </Link>
-                    <Link to="/movies" className={classes.link}>
-                        Movies
-                    </Link>
-                </Typography>
-                </Grid>
-               <Grid item lg >
-                <img src={Img} className={classes.imgCenter} alt="img" />
+                <Link to="/"><img src={Img} className={classes.imgCenter} alt="img" /></Link>
                 </Grid>
                <Grid item md>
-                 {cek(token)}
+                 {cek(token,props.admin)}
                 </Grid> 
             </Grid>
         </Toolbar>

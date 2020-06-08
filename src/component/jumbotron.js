@@ -95,7 +95,7 @@ export default function Jumbotron(props){
                     <Grid item lg>
                         <p className={classes.quote}>
                         {quotes} 
-                        <Button  size="small" variant="outlined" style={{textDecoration:'none',marginLeft:10}}>tv Series</Button>
+                        <Button  size="small" variant="outlined" style={{textDecoration:'none',borderColor:'white',color:'white',marginLeft:10}}>tv Series</Button>
                          </p>
                     </Grid>
                 </Grid> 

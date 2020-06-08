@@ -8,34 +8,39 @@ import Movies from './pages/movies'
 import Login from './pages/login'
 import Register from './pages/register'
 import Detail from './pages/detailvidio'
-import Vidio from './pages/Payment'
+import Pay from './pages/Payment'
+import Profile from './pages/Profile'
+import Admin from './pages/dashboardAdmin'
+import Transaksi from './pages/transaction'
+import DetailAdmin from './pages/detailAdmin'
+import AddFilem from './pages/addFilem'
+import AddSesion from './pages/addSession'
+import NoMatch from './pages/404'
+import Loading from './component/loading'
 
 function App () {
   return (
     <>
       <Router>
+        <Loading>
         <Switch>
         <Route path="/" exact component={Dashboard}></Route>
-        <Route path="/tes" exact>
-        <Vidio />
-        </Route>
-        <Route path="/true" exact>
-        <Dashboard token="true"/>
-        </Route>
-        <Route path="/tv" exact>
-        <Tv token="false"/>
-        </Route>
-        <Route path="/login" exact>
-        <Login />
-        </Route>
-        <Route path="/register" exact>
-        <Register />
-        </Route>
-        <Route path="/movies" exact>
-        <Movies  token="false"/>
-        </Route>
+        <Route path="/admin" exact component={Admin}></Route>
+        <Route path="/addfilem" exact component={AddFilem}></Route>
+        <Route path="/addepisode" exact component={AddSesion}></Route>
+        <Route path="/payment" exact><Pay /></Route>
+        <Route path="/transaksi" exact><Transaksi /></Route>
+        <Route path="/profile" exact><Profile /></Route>
+        <Route path="/true" exact><Dashboard token="true"/></Route>
+        <Route path="/tv" exact><Tv token="false"/></Route>
+        <Route path="/login" exact><Login /></Route>
+        <Route path="/register" exact><Register /></Route>
+        <Route path="/movies" exact><Movies  token="false"/></Route>
         <Route path="/detail/:id" render={(props) => (<Detail {...props}/>)}/>
+        <Route path="/vidio/:id" render={(props) => (<DetailAdmin {...props}/>)}/>
+        <Route path="*"><NoMatch /></Route>
         </Switch>
+        </Loading>
       </Router>
     </>
   );

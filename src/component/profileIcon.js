@@ -8,6 +8,7 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Divider from '@material-ui/core/Divider';
 import MovieIcon from '@material-ui/icons/Movie';
+import {Link} from 'react-router-dom'
 // data
 // import Data from '../api/profile'
 
@@ -15,11 +16,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down('lg')]:
     {
-        marginLeft:350
+        marginLeft:550
     },
     [theme.breakpoints.down('xs')]:
     {
-       marginTop:-20,
+       marginTop:-10,
       display:'block'
     },
     
@@ -31,10 +32,14 @@ const useStyles = makeStyles((theme) => ({
   },
   item:{
     marginRight:10
+  },
+  link:{
+    textDecoration:'none',
+    color:'#1F1F1F'
   }
 }));
 
-export default function ProfileIcon() {
+export default function ProfileIcon(props) {
   const classes=useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -46,6 +51,14 @@ export default function ProfileIcon() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const cek=(admin)=>{
+    if(admin){
+     return(<Link to="/transaksi" className={classes.link}><MenuItem onClick={handleClose}><MovieIcon className={classes.item}/>Movies</MenuItem></Link>)
+    }else{
+      return(<Link to="/payment" className={classes.link}><MenuItem onClick={handleClose}><PlayCircleFilledIcon className={classes.item}/>Play</MenuItem></Link>)
+    }
+  }
 
   const imgicon=<img style={{width:40,height:40,borderRadius:'50%'}} src="https://scontent.fbdo6-1.fna.fbcdn.net/v/t1.0-9/54514220_581505695684382_7911727614937530368_o.jpg?_nc_cat=103&_nc_sid=09cbfe&_nc_eui2=AeFtK3Cug8n3n5Pq-bni3ouzqVuMxc2BugupW4zFzYG6C_kFzIMrgfjeWT8H50p8BLoVcC5I8ER7oliKclEAmv9Y&_nc_oc=AQlUlAtxINtEJZNUM0tdA-2pWQz6pP5WThzkvgnGG3rAgAKwDvJ4JeQh9gi01RBjGag&_nc_ht=scontent.fbdo6-1.fna&oh=541cbf0ecc4d95f4aeab8233d3fce3ab&oe=5EFC3D48" alt="img"/>
 
@@ -61,7 +74,7 @@ export default function ProfileIcon() {
               >
                 {imgicon}   
               </IconButton> 
-              <Menu style={{marginTop:50}}
+              <Menu style={{marginTop:10}}
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -76,13 +89,11 @@ export default function ProfileIcon() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}><AccountCircle className={classes.item}/>Profile</MenuItem>
-                <MenuItem onClick={handleClose}><PlayCircleFilledIcon className={classes.item}/>Play</MenuItem>
-                <MenuItem onClick={handleClose}><MovieIcon className={classes.item}/>Movies</MenuItem>
+                <Link to="profile" className={classes.link}><MenuItem onClick={handleClose}><AccountCircle className={classes.item}/>Profile</MenuItem></Link>
+                {cek(props.admin)}
                 <Divider />
-                <MenuItem onClick={handleClose}><ExitToAppIcon className={classes.item}/>Logut</MenuItem>
+                <Link to="/" className={classes.link}><MenuItem onClick={handleClose}><ExitToAppIcon className={classes.item}/>Logut</MenuItem></Link>
               </Menu> 
-              {/* {Data} */}
     </div>
   );
 }

@@ -71,7 +71,7 @@ export default function InputAdornments() {
     <Box flexWrap="wrap" justifyContent="center">
       <div>
           <h3>Register</h3>
-        <TextField required id="standard-required" label="Username"/>
+        <TextField required id="standard-required" label="Username" autoFocus/>
         <FormControl className={clsx(classes.margin, classes.textField)}>
           <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
           <Input

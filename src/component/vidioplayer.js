@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import ReactPlayer from 'react-player'
+import { Player, BigPlayButton, ControlBar } from 'video-react'
 import '../styles/vidio.css' 
+import 'video-react/dist/video-react.css'
 import Data from '../api/filem'
 
 class Vidio extends Component {
@@ -9,7 +10,8 @@ class Vidio extends Component {
     //state
     this.state={
       id:this.props.id,
-      url:'' 
+      url:'',
+      poster:'' 
     }
   }
 
@@ -21,7 +23,8 @@ var databyid=Data.filter(dt=>dt.id===this.state.id)
 // if(this.state.id === '1'){ urlini='https://www.youtube.com/watch?v=BK0rbzLk0YI' }else{ urlini='https://www.youtube.com/watch?v=kYZut3DWvek'}
     
 this.setState({
-      url:databyid[0].vidioUrl
+      url:databyid[0].vidioUrl,
+      poster:databyid[0].thumbenail,
     })
   }
  
@@ -31,22 +34,28 @@ componentDidUpdate(prevProps,prepState){
 
   render () {
     const style={
-      paddingLeft:195,
-      marginTop:65,
+      paddingLeft:'50px',
+      marginTop:'20px',
       backgroundColor:'#000000'
     }
     console.log(this.state.url+"    ini render")
     return(
        <div style={style}>
-            <div className='player-wrapper' style={{backgroundColor:'#000000',marginBottom:-100}}>
-              <ReactPlayer style={{backgroundColor:'#000000'}}
-                className='react-player'
-                url={this.state.url}
-                width='80%'
-                height='80%'
-              />
+            <div className='vidio' style={{backgroundColor:'#000000'}}>
+            <Player
+            poster={this.state.poster}
+            height={536}
+            marginTop="200px"
+            width="95%"
+            fluid={false}
+            autoPlay={false}
+             >
+            <source src={this.state.url} />
+            <BigPlayButton position="center" />
+            <ControlBar autoHide={true} />
+            </Player>
             </div>
-        </div>    
+       </div>    
     )
   }
 }
