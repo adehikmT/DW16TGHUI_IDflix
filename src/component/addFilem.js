@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button'
 import AttachFileIcon from '@material-ui/icons/AttachFile';
+import AddEpisode from '../component/addEpisode'
+
 
 class Addfilem extends Component {
     render() {
@@ -9,9 +11,9 @@ class Addfilem extends Component {
             border:3,
             backgroundColor:'#1F1F1F',
             borderColor:'white',
-            width:226,
-            height:25,
-            marginBottom:5
+            width:400,
+            height:35,
+            marginBottom:10
         }
 
         var fon={
@@ -24,10 +26,10 @@ class Addfilem extends Component {
             border:3,
             backgroundColor:'#1F1F1F',
             borderColor:'white',
-            width:300,
-            height:25,
+            width:475,
+            height:35,
             marginBottom:5,
-            marginTop:5
+            marginTop:8
         }
     
 
@@ -53,11 +55,12 @@ class Addfilem extends Component {
                         <option>Kategori</option>
                         <option>Filem</option>
                         <option>Tv</option>
-                        </select>
+                        </select> 
                         <br></br>
-                        <textarea placeholder="deskripsi" style={{backgroundColor:'#1F1F1F',color:'white',width:'295px'}}></textarea>
+                        <textarea placeholder="deskripsi" style={{backgroundColor:'#1F1F1F',color:'white',width:'468px',marginBottom:'10px',marginTop:'10px'}}></textarea>
                         <br></br>
-                        <Button variant="contained" color="secondary" style={{width:100,marginTop:7}} className="">
+                        <AddEpisode/>
+                        <Button variant="contained" color="secondary" style={{width:470,marginTop:7,marginRight:10}} className="">
                             save
                         </Button>
             </div>

@@ -9,7 +9,7 @@ import Data from '../api/filem'
 class dashboard extends Component
 {
     constructor(props){
-        super()
+        super() 
     
     }
     render() 

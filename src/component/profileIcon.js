@@ -4,10 +4,10 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Divider from '@material-ui/core/Divider';
 import MovieIcon from '@material-ui/icons/Movie';
+import Payment from '@material-ui/icons/Payment'
 import {Link} from 'react-router-dom'
 // data
 // import Data from '../api/profile'
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     {
         marginLeft:550
     },
-    [theme.breakpoints.down('xs')]:
+    [theme.breakpoints.down('xs')]: 
     {
        marginTop:-10,
       display:'block'
@@ -56,7 +56,7 @@ export default function ProfileIcon(props) {
     if(admin){
      return(<Link to="/transaksi" className={classes.link}><MenuItem onClick={handleClose}><MovieIcon className={classes.item}/>Movies</MenuItem></Link>)
     }else{
-      return(<Link to="/payment" className={classes.link}><MenuItem onClick={handleClose}><PlayCircleFilledIcon className={classes.item}/>Play</MenuItem></Link>)
+      return(<Link to="/payment" className={classes.link}><MenuItem onClick={handleClose}><Payment className={classes.item}/>Pay</MenuItem></Link>)
     }
   }
 

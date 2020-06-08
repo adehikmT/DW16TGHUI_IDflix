@@ -3,7 +3,7 @@ import Pay from '../component/addFilem'
 import '../styles/profile.css'
 import Header from '../component/header'
 import Foo from '../component/foooter'
-import Button from '@material-ui/core/Button'
+// import Button from '@material-ui/core/Button'
 
 
 class AddFilem extends Component {
@@ -21,20 +21,12 @@ class AddFilem extends Component {
         })
     }
 
-    // componentWillMount(){
-    //     var save=<Pay/>
-    // }
-
     render() {
         return (
             <>
             <Header token="true" admin={true}/>
             <div className="center">        
                 <Pay /> 
-                {/* {this.save} */}
-                    <Button variant="contained" onClick={()=>this.HendleClick} color="secondary" style={{width:100,marginTop:7}} className="">
-                            save
-                    </Button>
             </div>
             <Foo /> 
             </>

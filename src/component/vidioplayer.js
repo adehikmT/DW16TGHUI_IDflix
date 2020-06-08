@@ -15,7 +15,7 @@ class Vidio extends Component {
     }
   }
 
-componentDidMount(){
+componentDidMount(){  
 
 //props.id 1 = vidio 1 || props.id >1 vidio 2
 var databyid=Data.filter(dt=>dt.id===this.state.id)

@@ -63,7 +63,7 @@ var data=[
 
 export default function ListFilem(props){
     const classes=useStyles();
-    // var databyid=Data.filter(dt=>dt.id===props.id)
+
     var list=props.id === 1 ? 1 : 0
 
     function cek(admin){
