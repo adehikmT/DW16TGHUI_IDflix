@@ -10,14 +10,10 @@ class ScrollToTop extends Component {
         behavior: "smooth",
       });
     }
-  } 
+  }
 
   render() {
-    return(
-    <>
-     {this.props.children}
-    </>
-    )
+    return <>{this.props.children}</>;
   }
 }
 
