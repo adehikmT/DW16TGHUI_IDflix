@@ -1,10 +1,16 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import IconDelete from "@material-ui/icons/Delete";
+import Loop from "@material-ui/icons/Loop";
+import IconUpdate from "@material-ui/icons/BorderColor";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 // card
 import CardFilm from "./cardFilm";
-//data
+//REDUX
+import { connect } from "react-redux";
+import { deleteFilmCreator } from "../redux/actions/actionFilm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,19 +29,41 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListFilem(props) {
+const ListFilem = (props) => {
   const classes = useStyles();
-  const Data = props.data;
+
+  const { dataDelete, loadingDelete, errorDelete } = props;
+
+  const handleDelete = async (id) => {
+    await props.deleteFilmCreator(id);
+  };
+
+  let Data = props.data;
+  // console.log(Data);
   const List = Data.map((data, index) => {
     return (
       <Grid key={index} item lg={2} xl={1}>
         <CardFilm
           key={index}
           id={data.id}
-          imgUrl={data.imgUrl}
-          judul={data.judul}
-          tahun={data.tahun}
+          imgUrl={data.thumbnailFilm}
+          judul={data.title}
+          tahun={data.year}
         />
+        <IconButton
+          aria-label="delete"
+          key={`del${index}`}
+          onClick={() => handleDelete(data.id)}
+        >
+          {loadingDelete ? (
+            <Loop fontSize="small" color="secondary" />
+          ) : (
+            <IconDelete fontSize="small" color="error" />
+          )}
+        </IconButton>
+        <IconButton aria-label="edit" value={data.id} key={`up${index}`}>
+          <IconUpdate fontSize="small" color="secondary" />
+        </IconButton>
       </Grid>
     );
   });
@@ -47,4 +75,17 @@ export default function ListFilem(props) {
       </Container>
     </section>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  const { data: dataDelete, loadingDelete, errorDelete } = state.deleteFilm;
+  return {
+    dataDelete,
+    loadingDelete,
+    errorDelete,
+  };
+};
+
+export default connect(mapStateToProps, {
+  deleteFilmCreator,
+})(ListFilem);

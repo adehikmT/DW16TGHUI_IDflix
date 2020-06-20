@@ -3,24 +3,53 @@ import Header from "../component/header";
 import Jumbotron from "../component/jumbotron";
 import ListFilm from "../component/listFilem";
 import Footer from "../component/foooter";
-// router
-import Data from "../api/filem";
-class Tv extends Component {
-  constructor(props) {
-    super();
+//css
+import "../styles/loading.css";
+// REDUX
+import { connect } from "react-redux";
+import { getAllfilmCreator } from "../redux/actions/actionFilm";
+
+class Tvs extends Component {
+  componentDidMount() {
+    this.props.getAllfilmCreator();
   }
+
   render() {
-    var tv = Data.filter((dt) => dt.kategori === "Tv");
+    const { loading, data, error } = this.props;
+    const tvshows =
+      data.length > 0 ? data.filter((movies) => movies.category.id === 1) : [];
     return (
       // fragmen
       <>
-        <Header token={this.props.token} />
-        <Jumbotron token={this.props.token} />
-        <ListFilm kategori="TV Series" data={tv} />
-        <Footer created=" DumpWays Ade 2020" />
+        <Header />
+        <Jumbotron />
+        {loading ? (
+          <h1 className="loading">Loading.....</h1>
+        ) : error ? (
+          <h1 className="loading">{error}</h1>
+        ) : data.length > 0 ? (
+          <>
+            <ListFilm
+              kategori="TV Shows"
+              data={data.length > 0 && !loading ? tvshows : []}
+            />
+          </>
+        ) : (
+          <h1 className="loading"> Film Blank </h1>
+        )}
+        <Footer created="Ade Hikmat Pauji Ridwan" />
       </>
     );
   }
 }
 
-export default Tv;
+const mapStateToProps = (state) => {
+  const { data, loading, error } = state.getAllfilm;
+  return {
+    data,
+    loading,
+    error,
+  };
+};
+
+export default connect(mapStateToProps, { getAllfilmCreator })(Tvs);

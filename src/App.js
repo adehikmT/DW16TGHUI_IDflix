@@ -1,6 +1,4 @@
 import React from "react";
-// import logo from './logo.svg';
-import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
 import Tv from "./pages/tv";
@@ -14,7 +12,6 @@ import Profile from "./pages/Profile";
 import Transaksi from "./pages/transaction";
 // import DetailAdmin from './pages/detailAdmin'
 import AddFilem from "./pages/addFilem";
-import AddSesion from "./pages/addSession";
 import NoMatch from "./pages/404";
 import Loading from "./component/loading";
 import PrivateRoute from "./component/utils/PrivateRoute";
@@ -28,15 +25,9 @@ function App() {
             <Route path="/" exact component={Dashboard}></Route>
             {/* <Route path="/admin" exact component={Admin}></Route> */}
             <PrivateRoute
-              path="/film"
+              path="/master"
               component={AddFilem}
               title="Films"
-              exact
-            />
-            <PrivateRoute
-              path="/episode"
-              component={AddSesion}
-              title="Episodes"
               exact
             />
             <PrivateRoute
@@ -48,7 +39,7 @@ function App() {
             <PrivateRoute
               path="/payment"
               component={Pay}
-              title="Payman"
+              title="Paymant"
               exact
             />
             <PrivateRoute
@@ -61,10 +52,10 @@ function App() {
               <Dashboard token="true" />
             </Route> */}
             <Route path="/tv" exact>
-              <Tv token="false" />
+              <Tv />
             </Route>
             <Route path="/movies" exact>
-              <Movies token="false" />
+              <Movies />
             </Route>
             <Route path="/login" exact>
               <Login />

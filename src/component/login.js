@@ -98,13 +98,13 @@ export default function InputAdornments() {
             Login
           </Button>
         </Link>
-        <small>
+        {/* <small>
           {" "}
           dont have an acount ? klik{" "}
           <Link to="/register" className={classes.downText}>
             Here
           </Link>
-        </small>
+        </small> */}
       </div>
     </>
   );

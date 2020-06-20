@@ -3,25 +3,53 @@ import Header from "../component/header";
 import Jumbotron from "../component/jumbotron";
 import ListFilm from "../component/listFilem";
 import Footer from "../component/foooter";
-// router
-import Data from "../api/filem";
+//css
+import "../styles/loading.css";
+// REDUX
+import { connect } from "react-redux";
+import { getAllfilmCreator } from "../redux/actions/actionFilm";
 
-class dashboard extends Component {
-  constructor(props) {
-    super();
+class Movies extends Component {
+  componentDidMount() {
+    this.props.getAllfilmCreator();
   }
+
   render() {
-    var filem = Data.filter((dt) => dt.kategori === "Filem");
+    const { loading, data, error } = this.props;
+    const film =
+      data.length > 0 ? data.filter((movies) => movies.category.id === 2) : [];
     return (
       // fragmen
       <>
-        <Header token={this.props.token} />
+        <Header />
         <Jumbotron />
-        <ListFilm kategori="Movies" data={filem} />
-        <Footer created=" DumpWays Ade 2020" />
+        {loading ? (
+          <h1 className="loading">Loading.....</h1>
+        ) : error ? (
+          <h1 className="loading">{error}</h1>
+        ) : data.length > 0 ? (
+          <>
+            <ListFilm
+              kategori="Movies"
+              data={data.length > 0 && !loading ? film : []}
+            />
+          </>
+        ) : (
+          <h1 className="loading"> Film Blank </h1>
+        )}
+        <Footer created="Ade Hikmat Pauji Ridwan" />
       </>
     );
   }
 }
 
-export default dashboard;
+const mapStateToProps = (state) => {
+  const { data, loading, error } = state.getAllfilm;
+  return {
+    data,
+    loading,
+    error,
+  };
+};
+
+export default connect(mapStateToProps, { getAllfilmCreator })(Movies);
