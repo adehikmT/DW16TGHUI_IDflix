@@ -16,26 +16,47 @@ const GET_ALL_FILM_PENDING = `${GET_ALL_FILM}_${ActionType.Pending}`;
 const GET_ALL_FILM_FULFILLED = `${GET_ALL_FILM}_${ActionType.Fulfilled}`;
 const GET_ALL_FILM_REJECTED = `${GET_ALL_FILM}_${ActionType.Rejected}`;
 
-const DETAIL_FILM_PENDING = `${DETAIL_FILM}_${ActionType.Pending}`;
-const DETAIL_FILM_FULFILLED = `${DETAIL_FILM}_${ActionType.Fulfilled}`;
-const DETAIL_FILM_REJECTED = `${DETAIL_FILM}_${ActionType.Rejected}`;
-
 export const getAllfilm = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_FILM_PENDING:
-    case DETAIL_FILM_PENDING:
       return {
         ...state,
         loading: true,
       };
     case GET_ALL_FILM_FULFILLED:
-    case DETAIL_FILM_FULFILLED:
       return {
         ...state,
         loading: false,
         data: action.payload,
       };
     case GET_ALL_FILM_REJECTED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+const DETAIL_FILM_PENDING = `${DETAIL_FILM}_${ActionType.Pending}`;
+const DETAIL_FILM_FULFILLED = `${DETAIL_FILM}_${ActionType.Fulfilled}`;
+const DETAIL_FILM_REJECTED = `${DETAIL_FILM}_${ActionType.Rejected}`;
+
+export const getDetailfilm = (state = initialState, action) => {
+  switch (action.type) {
+    case DETAIL_FILM_PENDING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DETAIL_FILM_FULFILLED:
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
     case DETAIL_FILM_REJECTED:
       return {
         ...state,

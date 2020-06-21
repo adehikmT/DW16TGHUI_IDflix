@@ -19,6 +19,7 @@ export const getAllfilmCreator = () => {
             data: { data: dataError },
             status,
           } = error.response;
+          console.log(error.response)
           if (status > 399) throw dataError.error;
         }
       }
@@ -31,7 +32,10 @@ export const getDetailfilmCreator = (id, token) => {
     type: DETAIL_FILM,
     payload: async () => {
       try {
-        const { data: dataFilm } = await API.get("/film/" + id, setAuthToken());
+        const { data: dataFilm } = await API.get(
+          "/film/" + id,
+          setAuthToken(token)
+        );
         return dataFilm.data;
       } catch (error) {
         if (error.response) {
@@ -54,7 +58,7 @@ export const postFilmCreator = (body, token) => {
         const { data: dataFilm } = await API.post(
           "/film",
           body,
-          setAuthToken()
+          setAuthToken(token)
         );
         // console.log(dataFilm);
         return dataFilm.data;
@@ -79,7 +83,7 @@ export const deleteFilmCreator = (id, token) => {
       try {
         const { data: dataFilm } = await API.delete(
           "/film/" + id,
-          setAuthToken()
+          setAuthToken(token)
         );
         // console.log(dataFilm);
         return dataFilm.data;

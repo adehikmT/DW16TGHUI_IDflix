@@ -4,7 +4,6 @@ import AddEpisode from "../component/addEpisode";
 import "../styles/profile.css";
 import Header from "../component/header";
 import Foo from "../component/foooter";
-// import Button from '@material-ui/core/Button'
 
 class AddFilem extends Component {
   render() {

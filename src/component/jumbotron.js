@@ -4,7 +4,6 @@ import IImg from "../images/jumbotron.png";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 // data
-import Data from "../api/dashboard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,16 +68,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Jumbotron(props) {
   const classes = useStyles();
-  const data = Data;
-  const Img = props.token
+
+  let token = false;
+  if (localStorage.token) {
+    token = true;
+  }
+
+  const Img = token
     ? "https://i.ytimg.com/vi/kYZut3DWvek/maxresdefault.jpg"
     : IImg;
-  const fontImg = props.token
+  const fontImg = token
     ? "https://fanart.tv/detailpreview/fanart/movies/567733/hdmovielogo/crypto-5ca5544547b9c.png"
-    : data.img;
-  const quotes = props.token
+    : "https://purepng.com/public/uploads/large/purepng.com-the-witcher-3-logowitcherthe-witcherandrzej-sapkowskiwriterfantasy-serieswitcher-geralt-of-riviawitchersbooksmonster-hunterssupernaturaldeadly-beastsseriesvideo-gamesxbox-1701528660976i5oef.png";
+  const quotes = token
     ? "Crypto is a 2019 American crime drama thriller film, about money laundering involving cryptocurrency. The film was directed by John Stalberg Jr. and written by Carlyle Eubank, David Frigerio, and Jeffrey Ingber. It stars Beau Knapp, Alexis Bledel, Luke Hemsworth and Kurt Russell. The film was released on April 12, 2019 in the United States"
-    : data.quotes;
+    : "Gralf of Rivia, a splitary monster hunter, struggles to find his place in a wolrd where people often prove wicked then best                2019";
   return (
     <>
       <div>

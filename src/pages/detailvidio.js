@@ -3,12 +3,15 @@ import Header from "../component/header";
 import VidioPlay from "../component/vidioplayer";
 import Detail from "../component/detailfilem";
 import Foo from "../component/foooter";
+
 // REDUX
 import { connect } from "react-redux";
 import { getDetailfilmCreator } from "../redux/actions/actionFilm";
+import { Link } from "react-router-dom";
 class Detailvidio extends Component {
   componentDidMount() {
-    this.props.getDetailfilmCreator(this.props.match.params.id);
+    const token = localStorage.getItem("token");
+    this.props.getDetailfilmCreator(this.props.match.params.id, token);
   }
 
   render() {
@@ -22,15 +25,39 @@ class Detailvidio extends Component {
     }
 
     const mounting = (
-      <h1
-        style={{
-          color: error ? "red" : "white",
-          textAlign: "center",
-          marginTop: 50,
-        }}
-      >
-        {info}
-      </h1>
+      <>
+        <h1
+          style={{
+            color: error ? "red" : "white",
+            textAlign: "center",
+            marginTop: 50,
+          }}
+        >
+          {info}
+        </h1>
+        {error ? (
+          <h2
+            style={{
+              color: "white",
+              textAlign: "center",
+              marginTop: 50,
+            }}
+          >
+            {localStorage.token ? (
+              <>
+                Your Account is not Active . Go to{" "}
+                <Link style={{ textDecoration: "none" }} to="/payment">
+                  payment
+                </Link>
+              </>
+            ) : (
+              <>You Must Login</>
+            )}
+          </h2>
+        ) : (
+          ""
+        )}
+      </>
     );
 
     let vidioPlay = "";
@@ -47,8 +74,14 @@ class Detailvidio extends Component {
     return (
       <div>
         <Header />
-        {vidioPlay}
-        {mounting}
+        {data.id || error ? (
+          <>
+            {vidioPlay}
+            {mounting}
+          </>
+        ) : (
+          ""
+        )}
         <Foo created=" DumpWays Ade" />
       </div>
     );
@@ -56,7 +89,7 @@ class Detailvidio extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { data, loading, error } = state.getAllfilm;
+  const { data, loading, error } = state.getDetailfilm;
   return {
     data,
     loading,

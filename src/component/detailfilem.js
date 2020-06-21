@@ -9,6 +9,9 @@ import CardFilm from "./cardFilm";
 import Admin from "./sectionAdmin";
 //data
 
+// REDUX
+import { connect } from "react-redux";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#000000",
@@ -29,9 +32,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListFilem(props) {
+const ListFilem = (props) => {
   const classes = useStyles();
 
+  const { Auth } = props;
+  // admin or not
+  let admin = false;
+  if (Auth.length > 0 && Auth[0].role > 0) {
+    admin = true;
+  }
   function cek(admin) {
     if (admin) {
       return <Admin detail={true} />;
@@ -47,7 +56,7 @@ export default function ListFilem(props) {
   } = props.detail;
   return (
     <section className={classes.root}>
-      {cek(props.admin)}
+      {cek(admin)}
       <Container>
         <Grid container>
           <Grid item lg={3} xl={1}>
@@ -67,4 +76,13 @@ export default function ListFilem(props) {
       </Container>
     </section>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  const { data: Auth } = state.authReducer;
+  return {
+    Auth,
+  };
+};
+
+export default connect(mapStateToProps)(ListFilem);

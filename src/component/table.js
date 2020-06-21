@@ -49,13 +49,14 @@ const SimpleTable = (props) => {
     dataDelete,
     loadingDelete,
     errorDelete,
-    dataPost,
+    Auth,
   } = props;
 
   // console.log(dataPost);
 
   useEffect(() => {
-    props.getAlltransactionCreator();
+    const token = localStorage.getItem("token");
+    props.getAlltransactionCreator(token);
     // setCount(count + 1);
     console.log(count);
   }, [count]);
@@ -69,11 +70,20 @@ const SimpleTable = (props) => {
   const henhandleClick = async (event) => {
     const id = event.target.attributes[1].nodeValue;
     const action = event.target.attributes[0].nodeValue;
+    const token = localStorage.getItem("token");
     if (action === "delete") {
-      await props.deleteTransactionCreator(id);
+      await props.deleteTransactionCreator(id, token);
       setCount(count + 1);
     } else {
-      await props.patchTransactionCreator({ status: action }, id);
+      let us = 1;
+      if (action === "cencle") {
+        us = 2;
+      }
+      await props.patchTransactionCreator(
+        { status: action, userStatus: us },
+        id,
+        token
+      );
       setCount(count + 1);
     }
   };
@@ -124,9 +134,13 @@ const SimpleTable = (props) => {
               <TableCell className={classes.hed} align="right">
                 Status Payment
               </TableCell>
-              <TableCell className={classes.hed} align="right">
-                Aksi
-              </TableCell>
+              {Auth.length > 0 && Auth[0].role > 0 ? (
+                <TableCell className={classes.hed} align="right">
+                  Aksi
+                </TableCell>
+              ) : (
+                ""
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -147,7 +161,7 @@ const SimpleTable = (props) => {
                       <img
                         src={`${BASE_URL}/images/${row.attache}`}
                         alt={row.attache}
-                        style={{ maxWidth: 250 }}
+                        style={{ maxWidth: 25 }}
                       />
                     </TableCell>
                     <TableCell className={classes.cel} align="right">
@@ -158,11 +172,11 @@ const SimpleTable = (props) => {
                     </TableCell>
                     <TableCell
                       style={{
-                        color: row.user.subscibe ? "#0ACF83" : "#FF0742",
+                        color: row.userStatus === 1 ? "#0ACF83" : "#FF0742",
                       }}
                       align="right"
                     >
-                      {row.user.subscibe ? "Active" : "Non Active"}
+                      {row.userStatus === 1 ? "Active" : "Non Active"}
                     </TableCell>
                     <TableCell
                       style={{
@@ -177,34 +191,38 @@ const SimpleTable = (props) => {
                     >
                       {row.status}
                     </TableCell>
-                    <TableCell className={classes.cel} align="right">
-                      <div className="dropdown">
-                        <ArrowDropDownIcon className="dropbtn" />
-                        <div className="dropdown-content">
-                          <span
-                            name="approve"
-                            value={row.id}
-                            onClick={henhandleClick}
-                          >
-                            Aprove
-                          </span>
-                          <span
-                            name="cencle"
-                            value={row.id}
-                            onClick={henhandleClick}
-                          >
-                            Cencel
-                          </span>
-                          <span
-                            name="delete"
-                            value={row.id}
-                            onClick={henhandleClick}
-                          >
-                            Delete
-                          </span>
+                    {Auth.length > 0 && Auth[0].role > 0 ? (
+                      <TableCell className={classes.cel} align="right">
+                        <div className="dropdown">
+                          <ArrowDropDownIcon className="dropbtn" />
+                          <div className="dropdown-content">
+                            <span
+                              name="approve"
+                              value={row.id}
+                              onClick={henhandleClick}
+                            >
+                              Aprove
+                            </span>
+                            <span
+                              name="cencle"
+                              value={row.id}
+                              onClick={henhandleClick}
+                            >
+                              Cencel
+                            </span>
+                            <span
+                              name="delete"
+                              value={row.id}
+                              onClick={henhandleClick}
+                            >
+                              Delete
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </TableCell>
+                      </TableCell>
+                    ) : (
+                      ""
+                    )}
                   </TableRow>
                 ))
               : ""}
@@ -217,7 +235,7 @@ const SimpleTable = (props) => {
 
 const mapStateToProps = (state) => {
   const { data, loading, error } = state.getAlltransaction;
-  const { data: dataPost } = state.postTransaction;
+  const { data: Auth } = state.authReducer;
   const {
     data: dataPatch,
     loading: loadingPatch,
@@ -240,7 +258,7 @@ const mapStateToProps = (state) => {
     dataDelete,
     loadingDelete,
     errorDelete,
-    dataPost,
+    Auth,
   };
 };
 

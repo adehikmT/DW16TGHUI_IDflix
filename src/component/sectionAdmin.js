@@ -6,7 +6,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import ListFilm from "./listFilem";
-import Data from "../api/filem";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,9 +38,6 @@ const Admin = (props) => {
     name: "",
   });
 
-  var filem = Data.filter((dt) => dt.kategori === "Filem");
-  var tv = Data.filter((dt) => dt.kategori === "Tv");
-
   const handleChange = (event) => {
     const name = event.target.name;
     setState({
@@ -52,24 +48,24 @@ const Admin = (props) => {
 
   const kategori = (type) => {
     if (type === "2") {
-      return <ListFilm kategori="TV Series" data={tv} />;
+      return <ListFilm kategori="TV Series" data={props.tv} />;
     } else if (type === "1") {
-      return <ListFilm kategori="Movies" data={filem} />;
+      return <ListFilm kategori="Movies" data={props.film} />;
     } else {
       return (
         <>
-          <ListFilm kategori="TV Series" data={tv} />
-          <ListFilm kategori="Movies" data={filem} />
+          <ListFilm kategori="TV Series" data={props.tv} />
+          <ListFilm kategori="Movies" data={props.film} />
         </>
       );
     }
   };
-  function cek(detail) {
+  function cek(detail, tv, filem) {
     if (detail) {
       return (
         <>
           <Container>
-            <Link to="/addepisode">
+            <Link to="/master">
               <Button
                 variant="contained"
                 size="small"
@@ -111,7 +107,7 @@ const Admin = (props) => {
                 </option>
               </NativeSelect>
             </FormControl>
-            <Link to="/addfilem">
+            <Link to="/master">
               <Button
                 variant="contained"
                 size="small"

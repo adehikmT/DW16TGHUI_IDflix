@@ -7,10 +7,13 @@ import Menu from "@material-ui/core/Menu";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Divider from "@material-ui/core/Divider";
 import MovieIcon from "@material-ui/icons/Movie";
+import Book from "@material-ui/icons/Book";
 import Payment from "@material-ui/icons/Payment";
 import { Link } from "react-router-dom";
 // data
 // import Data from '../api/profile'
+// REDUX
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProfileIcon(props) {
+const ProfileIcon = (props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -49,24 +52,53 @@ export default function ProfileIcon(props) {
     setAnchorEl(null);
   };
 
+  const hendleLogout = () => {
+    localStorage.clear();
+    window.location.reload(false);
+    window.location.href = "/";
+  };
+
+  // admin or not
+  const { Auth } = props;
+  let admin = false;
+  if (Auth.length > 0 && Auth[0].role > 0) {
+    admin = true;
+  }
+
   const cek = (admin) => {
     if (admin) {
       return (
-        <Link to="/transaksi" className={classes.link}>
-          <MenuItem onClick={handleClose}>
-            <MovieIcon className={classes.item} />
-            Movies
-          </MenuItem>
-        </Link>
+        <>
+          <Link to="/master" className={classes.link}>
+            <MenuItem onClick={handleClose}>
+              <MovieIcon className={classes.item} />
+              Movies
+            </MenuItem>
+          </Link>
+          <Link to="/transaction" className={classes.link}>
+            <MenuItem onClick={handleClose}>
+              <Book className={classes.item} />
+              Transaction
+            </MenuItem>
+          </Link>
+        </>
       );
     } else {
       return (
-        <Link to="/payment" className={classes.link}>
-          <MenuItem onClick={handleClose}>
-            <Payment className={classes.item} />
-            Pay
-          </MenuItem>
-        </Link>
+        <>
+          <Link to="/payment" className={classes.link}>
+            <MenuItem onClick={handleClose}>
+              <Payment className={classes.item} />
+              Pay
+            </MenuItem>
+          </Link>
+          <Link to="/transaction" className={classes.link}>
+            <MenuItem onClick={handleClose}>
+              <Book className={classes.item} />
+              Transaction
+            </MenuItem>
+          </Link>
+        </>
       );
     }
   };
@@ -112,15 +144,22 @@ export default function ProfileIcon(props) {
             Profile
           </MenuItem>
         </Link>
-        {cek(props.admin)}
+        {cek(admin)}
         <Divider />
-        <Link to="/" className={classes.link}>
-          <MenuItem onClick={handleClose}>
-            <ExitToAppIcon className={classes.item} />
-            Logut
-          </MenuItem>
-        </Link>
+        <MenuItem onClick={hendleLogout}>
+          <ExitToAppIcon className={classes.item} />
+          Logut
+        </MenuItem>
       </Menu>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  const { data: Auth } = state.authReducer;
+  return {
+    Auth,
+  };
+};
+
+export default connect(mapStateToProps)(ProfileIcon);

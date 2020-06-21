@@ -10,6 +10,9 @@ import ProfileIcon from "./profileIcon";
 // modal
 import Modal from "./modal";
 
+// REDUX
+import { connect } from "react-redux";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "fixed",
@@ -49,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function cek(isLogin, admin) {
+function cek(isLogin) {
   if (!isLogin) {
     return (
       <div style={{ marginTop: "-10px" }}>
@@ -72,7 +75,7 @@ function cek(isLogin, admin) {
   } else {
     return (
       <div>
-        <ProfileIcon admin={admin} />
+        <ProfileIcon />
       </div>
     );
   }
@@ -100,9 +103,20 @@ function cekAdmin(isAdmin, link) {
   }
 }
 
-export default function Header(props) {
+const Header = (props) => {
   const classes = useStyles();
-  const { token, admin } = props;
+  const { Auth } = props;
+
+  // admin or not
+  let admin = false;
+  let token = false;
+  if (Auth.length > 0 && Auth[0].role > 0) {
+    admin = true;
+  }
+  // cektoken
+  if (localStorage.token) {
+    token = true;
+  }
 
   return (
     <>
@@ -121,11 +135,20 @@ export default function Header(props) {
               </Link>
             </Grid>
             <Grid item md>
-              {cek(token, props.admin)}
+              {cek(token)}
             </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
     </>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  const { data: Auth } = state.authReducer;
+  return {
+    Auth,
+  };
+};
+
+export default connect(mapStateToProps)(Header);

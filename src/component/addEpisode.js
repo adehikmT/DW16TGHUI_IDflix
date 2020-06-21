@@ -26,8 +26,8 @@ class AddEpisode extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state.episode);
-    await this.props.postEpisodeCreator(this.state.episode);
+    const token = localStorage.getItem("token");
+    await this.props.postEpisodeCreator(this.state.episode, token);
     this.setState({ episode: {} });
   };
 

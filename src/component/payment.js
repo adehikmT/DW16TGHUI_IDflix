@@ -36,7 +36,8 @@ class payment extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     // console.log(this.state.transaction);
-    await this.props.postTransactionCreator(this.state.transaction);
+    const token = localStorage.getItem("token");
+    await this.props.postTransactionCreator(this.state.transaction, token);
     this.setState({
       file: null,
       transaction: { startDate: "", dueDate: "", image: "" },

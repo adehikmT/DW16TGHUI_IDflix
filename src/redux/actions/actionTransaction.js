@@ -13,7 +13,7 @@ export const getAlltransactionCreator = (token) => {
       try {
         const { data: dataTrans } = await API.get(
           "/transaction",
-          setAuthToken()
+          setAuthToken(token)
         );
         return dataTrans.data;
       } catch (error) {
@@ -37,7 +37,7 @@ export const patchTransactionCreator = (body, id, token) => {
         const { data: dataTrans } = await API.patch(
           "/transaction/" + id,
           body,
-          setAuthToken()
+          setAuthToken(token)
         );
         return dataTrans.data;
       } catch (error) {
@@ -60,7 +60,7 @@ export const deleteTransactionCreator = (id, token) => {
       try {
         const { data: dataTrans } = await API.delete(
           "/transaction/" + id,
-          setAuthToken()
+          setAuthToken(token)
         );
         return dataTrans.data;
       } catch (error) {
@@ -83,6 +83,7 @@ export const postTransactionCreator = (body, token) => {
   formData.append("dueDate", body.dueDate);
   formData.append("image", body.image);
   formData.append("status", "pending");
+  formData.append("userStatus", 0);
 
   const config = {
     headers: {
@@ -98,7 +99,7 @@ export const postTransactionCreator = (body, token) => {
           "/transaction/",
           formData,
           config,
-          setAuthToken()
+          setAuthToken(token)
         );
         return dataTrans.data;
       } catch (error) {

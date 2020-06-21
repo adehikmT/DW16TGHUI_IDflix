@@ -32,11 +32,22 @@ const useStyles = makeStyles((theme) => ({
 const ListFilem = (props) => {
   const classes = useStyles();
 
-  const { dataDelete, loadingDelete, errorDelete } = props;
+  const { dataDelete, loadingDelete, errorDelete, Auth } = props;
 
   const handleDelete = async (id) => {
-    await props.deleteFilmCreator(id);
+    const token = localStorage.getItem("token");
+    await props.deleteFilmCreator(id, token);
   };
+
+  let admin = false;
+  let token = false;
+  if (Auth.length > 0 && Auth[0].role > 0) {
+    admin = true;
+  }
+  // cektoken
+  if (localStorage.token) {
+    token = true;
+  }
 
   let Data = props.data;
   // console.log(Data);
@@ -50,20 +61,27 @@ const ListFilem = (props) => {
           judul={data.title}
           tahun={data.year}
         />
-        <IconButton
-          aria-label="delete"
-          key={`del${index}`}
-          onClick={() => handleDelete(data.id)}
-        >
-          {loadingDelete ? (
-            <Loop fontSize="small" color="secondary" />
-          ) : (
-            <IconDelete fontSize="small" color="error" />
-          )}
-        </IconButton>
-        <IconButton aria-label="edit" value={data.id} key={`up${index}`}>
-          <IconUpdate fontSize="small" color="secondary" />
-        </IconButton>
+
+        {Auth.length > 0 && Auth[0].role > 0 ? (
+          <>
+            <IconButton
+              aria-label="delete"
+              key={`del${index}`}
+              onClick={() => handleDelete(data.id)}
+            >
+              {loadingDelete ? (
+                <Loop fontSize="small" color="secondary" />
+              ) : (
+                <IconDelete fontSize="small" color="error" />
+              )}
+            </IconButton>
+            <IconButton aria-label="edit" value={data.id} key={`up${index}`}>
+              <IconUpdate fontSize="small" color="secondary" />
+            </IconButton>{" "}
+          </>
+        ) : (
+          ""
+        )}
       </Grid>
     );
   });
@@ -79,10 +97,12 @@ const ListFilem = (props) => {
 
 const mapStateToProps = (state) => {
   const { data: dataDelete, loadingDelete, errorDelete } = state.deleteFilm;
+  const { data: Auth } = state.authReducer;
   return {
     dataDelete,
     loadingDelete,
     errorDelete,
+    Auth,
   };
 };
 

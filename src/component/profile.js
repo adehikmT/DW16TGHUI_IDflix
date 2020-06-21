@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ImageIcon from "@material-ui/icons/Image";
+import ImageIcon from "@material-ui/icons/People";
 import EmailIcon from "@material-ui/icons/Email";
 import LocalActivityIcon from "@material-ui/icons/LocalActivity";
 import WcIcon from "@material-ui/icons/Wc";
@@ -12,9 +12,22 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/Camera";
 
+//REDUX
+import { connect } from "react-redux";
 class profile extends Component {
   constructor(props) {
     super();
+    this.state = {
+      user: {},
+    };
+  }
+
+  componentDidMount() {
+    const { Auth } = this.props;
+    if (Auth.length > 0) {
+      const user = Auth[0];
+      this.setState({ user });
+    }
   }
 
   render() {
@@ -29,6 +42,9 @@ class profile extends Component {
       marginLeft: -50,
     };
 
+    const { user } = this.state;
+    console.log(user);
+
     return (
       <>
         <Grid container>
@@ -38,7 +54,7 @@ class profile extends Component {
                 <ImageIcon color="secondary" />
                 <ListItemText
                   style={{ color: "white", marginLeft: 10 }}
-                  primary="adehikmat.jpg"
+                  primary={user.fullName}
                   secondary=""
                 />
               </ListItem>
@@ -46,7 +62,7 @@ class profile extends Component {
                 <EmailIcon color="secondary" />
                 <ListItemText
                   style={{ color: "white", marginLeft: 10 }}
-                  primary="aalolxyz@gmail.com"
+                  primary={user.email}
                   secondary=""
                 />
               </ListItem>
@@ -54,7 +70,7 @@ class profile extends Component {
                 <LocalActivityIcon color="secondary" />
                 <ListItemText
                   style={{ color: "white", marginLeft: 10 }}
-                  primary="Active"
+                  primary={user.subscibe ? "Active" : "Non Active"}
                   secondary=""
                 />
               </ListItem>
@@ -62,7 +78,7 @@ class profile extends Component {
                 <WcIcon color="secondary" />
                 <ListItemText
                   style={{ color: "white", marginLeft: 10 }}
-                  primary="None"
+                  primary={user.gendre}
                   secondary=""
                 />
               </ListItem>
@@ -70,7 +86,7 @@ class profile extends Component {
                 <PhoneIcon color="secondary" />
                 <ListItemText
                   style={{ color: "white", marginLeft: 10 }}
-                  primary="090909090909"
+                  primary={user.phone}
                   secondary=""
                 />
               </ListItem>
@@ -78,7 +94,7 @@ class profile extends Component {
                 <LocationOnIcon color="secondary" />
                 <ListItemText
                   style={{ color: "white", marginLeft: 10 }}
-                  primary="Indonesai"
+                  primary={user.address}
                   secondary=""
                 />
               </ListItem>
@@ -115,4 +131,11 @@ class profile extends Component {
   }
 }
 
-export default profile;
+const mapStateToProps = (state) => {
+  const { data: Auth } = state.authReducer;
+  return {
+    Auth,
+  };
+};
+
+export default connect(mapStateToProps)(profile);

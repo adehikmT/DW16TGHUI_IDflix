@@ -1,5 +1,4 @@
 import React from "react";
-// import '../styles/404.css'
 
 function NotFound() {
   const styl = {

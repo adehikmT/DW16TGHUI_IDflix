@@ -23,8 +23,8 @@ class Addfilem extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state.film);
-    await this.props.postFilmCreator(this.state.film);
+    const token = localStorage.getItem("token");
+    await this.props.postFilmCreator(this.state.film, token);
     this.setState({ film: {} });
   };
 

@@ -9,7 +9,7 @@ export const postEpisodeCreator = (body, token) => {
         const { data: dataEpisode } = await API.post(
           "/episode",
           body,
-          setAuthToken()
+          setAuthToken(token)
         );
         // console.log(dataFilm);
         return dataEpisode.data;
@@ -27,12 +27,15 @@ export const postEpisodeCreator = (body, token) => {
   };
 };
 
-export const getEpisodefilmCreator = (id) => {
+export const getEpisodefilmCreator = (id, token) => {
   return {
     type: GET_EPISODE_FILM,
     payload: async () => {
       try {
-        const { data: dataEpisode } = await API.get(`/filem/${id}/episodes`);
+        const { data: dataEpisode } = await API.get(
+          `/filem/${id}/episodes`,
+          setAuthToken(token)
+        );
         // console.log(dataFilm);
         return dataEpisode.data;
       } catch (error) {

@@ -10,7 +10,7 @@ function PrivateRoute(props) {
     token = true;
   }
   let auth = false;
-  if (props.Auth.length > 0) {
+  if (props.Auth.length > 0 && props.Auth[0].role > 0) {
     auth = true;
   }
 

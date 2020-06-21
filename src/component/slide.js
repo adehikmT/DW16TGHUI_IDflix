@@ -15,8 +15,9 @@ class Slide extends Component {
   }
 
   componentDidMount() {
+    const token = localStorage.getItem("token");
     const { filmId } = this.state.props;
-    this.props.getEpisodefilmCreator(filmId);
+    this.props.getEpisodefilmCreator(filmId, token);
   }
 
   render() {
@@ -33,7 +34,7 @@ class Slide extends Component {
     if (data.length > 0) {
       console.log(data);
       linkEpisode = data.map((dt, i) => (
-        <Link to={`/detail/${dt.filem.id}/episode/${dt.id}`}>
+        <Link to={`/detail/${dt.filem.id}/episode/${dt.id}`} target="blank">
           <img key={i} alt="img" style={style} src={dt.thumbnailFilem} />
           <h3 style={{ color: "white", textDecoration: "none" }}>
             {dt.filem.title} {dt.title}
