@@ -2,6 +2,8 @@
 
 the first project created by react and express . I just made this project to finish project assignment.
 
+backend repo click here [https://github.com/adehikmT/DW16TGHUI_Dumbflix_api](backend)
+
 ## Demo Aplication
 
 click here [https://dumbflix.netlify.app](dumbflix) , documented access on a PC or laptop device to enjoy access :) . 
