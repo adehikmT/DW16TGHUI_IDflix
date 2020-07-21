@@ -1,4 +1,4 @@
-## DumbSound
+## Dumbflix
 
 the first project created by react and express . I just made this project to finish project assignment.
 
